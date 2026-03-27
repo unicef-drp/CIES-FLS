@@ -31,8 +31,7 @@
 # All indicators are coded directly as 0/100 so they can later be
 # aggregated into percentages.
 #
-# Note:
-# This script creates the literacy and numeracy indicators at the child
+# Note: This script creates the literacy and numeracy indicators at the child
 # level. It does not yet apply survey weights in the calculation of
 # summary results. Weights should be applied later when producing tables
 # or reporting aggregate estimates.
@@ -131,7 +130,7 @@ for (countrycode in country_codes) {
     
     fs <- fs %>%
       mutate(
-        # 100) Correctly read at least 90% of words in a story
+        # 1) Correctly read at least 90% of words in a story
         readCorrect = case_when(
           (wd1_corr > 0.9 * st1wnum) | (wd2_corr > 0.9 * st2wnum) ~ 100,
           TRUE ~ 0
