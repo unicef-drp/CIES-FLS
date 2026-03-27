@@ -61,7 +61,7 @@ GitHub Desktop helps you download and manage the repository easily (no coding ne
 1. Open **GitHub Desktop**
 2. Go to **File → Clone Repository**
 3. Click the **URL** tab
-4. Paste in this repository's URL: `https://github.com/jkleczka/CIES_Workshop_MICS_FLS.git`
+4. Paste in this repository's URL: `https://github.com/unicef-drp/CIES-FLS.git`
 5. Under **"Local Path"**, choose a location on your computer where you want to save the repository (e.g., your Documents folder)
 6. Click **Clone**
 
@@ -165,7 +165,7 @@ If the project is not opened correctly → paths will break.
 
 ### Step 1 — Merge MICS6 Modules
 
-Script: `01_process_fls_microdata/012_code/0121_prepare_data.R`
+Script: `01_process_fls_microdata/012_code/0121_merge_data.R`
 
 Learn how to:
 - Load MICS datasets
@@ -230,7 +230,7 @@ Learn how to:
 
 ### Step 4 — Learning Gradient Analysis
 
-Script: `02_learning_gradient_analysis/022_code/produce_charts_demo.R`
+Script: `02_learning_gradient_analysis/022_code/0221_learning_gradient_demo.R`
 
 
 Learn how to:
