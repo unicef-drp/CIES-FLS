@@ -3,8 +3,8 @@
 # Sector: UNICEF Education Data & Analytics
 # Objective: Practice processing MICS FLS data for Suriname and
 #            visualizing foundational reading and numeracy results.
-# Author: Justin Kleczka & Sakshi Mishra
-# Date: March 25, 2026
+# Author: Femke van den Bos, Justin Kleczka, & Sakshi Mishra
+# Date: March 27, 2026
 #
 # Description:
 # This script is a workshop exercise. Participants will practice
@@ -49,7 +49,7 @@ if (!file.exists("profile.R")) {
 #-------------------------------------------------------------------
 
 # In this exercise, you will adapt the example processing script
-# (0122_example_BGD_NGA) to process Suriname.
+# (0122_example_BGD_NGA) to process Suriname (ISO-3 code: "SUR").
 #
 # Copy the relevant code for each section below:
 # 1. Load the data
@@ -124,6 +124,10 @@ if (uses_single_reading) {
 # processed Suriname file here for the visualisation exercises.
 
 fs <- readRDS(file.path(processed_output_data, "SUR_fs_processed.rds"))
+
+# If you had trouble producing your own processed Suriname dataset, 
+# uncomment this line below and run it to use for the visualization exercises
+#fs <- readRDS(file.path(processed_output_data, "SUR_fs_processed1.rds"))
 
 #-------------------------------------------------------------------
 # VISUALIZE SURINAME FLS DATA

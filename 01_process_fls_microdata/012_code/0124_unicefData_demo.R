@@ -1,9 +1,14 @@
 #-------------------------------------------------------------------
-# Project: CIES Workshop – Using unicefData in R
-#-------------------------------------------------------------------
-# Objective:
-# Demonstrate how to directly access UNICEF education indicators
-# in R using the unicefData package.
+# Project: CIES Workshop Demonstration: Working with MICS FLS Data
+# Sector: UNICEF Education Data & Analytics
+# Objective: Using the "unicefData" Package in R
+# Author: Femke van den Bos  & Sakshi Mishra
+# Date: March 26, 2026
+#
+# Description:
+
+# This code demonstrates how to directly access UNICEF education indicators
+# in R using the "unicefData" package.
 #
 # Key idea:
 # We do NOT need to manually download data from the MICS website.
@@ -14,6 +19,7 @@
 # - Nigeria (NGA)
 # - Suriname (SUR)
 #-------------------------------------------------------------------
+
 
 #-------------------------------------------------------------------
 # IMPORTANT: HOW TO RUN THIS SCRIPT

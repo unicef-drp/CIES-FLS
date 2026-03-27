@@ -4,10 +4,11 @@
 # Objective: Demonstrate how to process Bangladesh and Nigeria's
 #            MICS Foundational Learning Skills (FLS) data to measure
 #            foundational reading and numeracy in the countries.
-# Author: Justin Kleczka & Sakshi Mishra
-# Date: March 25, 2026
+# Author: Justin Kleczka, Femke van den Bos, & Sakshi Mishra
+# Date: March 27, 2026
 #
 # Description:
+
 # This code demonstrates how to process the MICS Foundational Learning
 # Skills (FLS) data for two example countries: Bangladesh and Nigeria.
 # The code is structured to loop through each country, load the relevant
@@ -15,7 +16,7 @@
 # foundational reading and numeracy indicators.
 #
 # For reading, the code uses the questionnaire design logic captured by
-# the variable readmthd:
+# the variable "readmthd":
 #   - If a country file only contains readmthd values 1 or 2, children
 #     were assessed using the single-story reading pathway, and the code
 #     uses wd_corr together with the FL22 comprehension items.
@@ -68,7 +69,7 @@ if (!file.exists("profile.R")) {
 
 # These are the ISO-3 country codes for the 2 countries used in this example:
 # Bangladesh (BGD) and Nigeria (NGA)
-country_codes <- c("BGD", "NGA", "SUR")
+country_codes <- c("BGD", "NGA")
 
 #-------------------------------------------------------------------
 # PROCESS DATA FOR SELECTED COUNTRIES
@@ -77,10 +78,10 @@ country_codes <- c("BGD", "NGA", "SUR")
 # Begin loop to process each country one by one
 for (countrycode in country_codes) {
   
-  # ── Load data stored in repo ─────────────────────────────────────
+  # ── Load input data stored in repo ─────────────────────────────────────
   fs <- read_sav(paste0(raw_input_data, "/", countrycode, "_fs.sav"))
   
-  # ── Keep children aged 7–14 with a completed module (FL28 == 100) ─
+  # ── Keep children aged 7–14 with a completed module (FL28 == 1) ─
   fs <- fs %>%
     filter(FL28 == 1 & CB3 >= 7 & CB3 <= 14)
   
@@ -176,7 +177,7 @@ for (countrycode in country_codes) {
   # ── Foundational Numeracy Skills ────────────────────────────────
   fs <- fs %>%
     mutate(
-      # 100) Read all 6 numbers correctly
+      # 1) Read all 6 numbers correctly
       target_num = rowSums(
         cbind(FL23A, FL23B, FL23C, FL23D, FL23E, FL23F),
         na.rm = FALSE

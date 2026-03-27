@@ -3,8 +3,8 @@
 # Sector: UNICEF Education Data & Analytics
 # Objective: Demonstrate how to use processed MICS FLS data to
 #            reproduce foundational learning gradient charts.
-# Author: Justin Kleczka & Sakshi Mishra
-# Date: March 18, 2026
+# Author: Aiman Noman, Justin Kleczka, Femke van den Bos, & Sakshi Mishra
+# Date: March 27, 2026
 #
 # Description:
 # This script demonstrates how to use processed MICS Foundational

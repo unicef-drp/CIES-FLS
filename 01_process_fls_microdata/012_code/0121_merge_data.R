@@ -1,15 +1,13 @@
 #-------------------------------------------------------------------
 # Project: CIES Workshop Demonstration: Working with MICS FLS Data
 # Sector: UNICEF Education Data & Analytics
-# Objective: Set up the R environment to process MICS FLS microdata and
-# conduct learning gradient analysis
-# 
-# Author: Justin Kleczka & Sakshi Mishra
-# Date: March 18, 2026
+# Objective: Demonstrate how to merge MICS6 modules for a country
+# Author: Justin Kleczka, Femke van den Bos, & Sakshi Mishra
+# Date: March 27, 2026
 #
 # Description:
 # This script demonstrates how to merge MICS6 modules.
-# Merging modules enables analysis across domains (learning, health, wealth, etc.).
+# Merging modules enables analysis across domains such as learning, health, wealth, etc.
 # In this example, we merge:
 #   - Household Module (HH)
 #   - Children Age 5–17 Module (FS)
@@ -19,9 +17,9 @@
 # https://mics.unicef.org/surveys
 #-------------------------------------------------------------------
 
-# ============================================================
+#-------------------------------------------------------------------
 # IMPORTANT: How to run this script
-# ============================================================
+#-------------------------------------------------------------------
 
 # Please open the R project file:
 #   CIES_Workshop_MICS_FLS.Rproj
@@ -34,9 +32,9 @@
 #
 # If you do not do this, file paths may not work.
 
-# ============================================================
-# Load project configuration (profile.R)
-# ============================================================
+#-------------------------------------------------------------------
+# LOAD PROJECT CONFIGURATION (profile.R)
+#-------------------------------------------------------------------
 
 if (!file.exists("profile.R")) {
   stop("Please open the project via CIES_Workshop_MICS_FLS.Rproj")
@@ -44,11 +42,11 @@ if (!file.exists("profile.R")) {
   source("profile.R")
 }
 
-# ============================================================
+#-------------------------------------------------------------------
 # PREPARE BANGLADESH DATA
-# ============================================================
+#-------------------------------------------------------------------
 
-# FS module (child-level data)
+# Load the FS module (child-level data)
 bangladesh_fs_path <- file.path(
   project_folder,
   "01_process_fls_microdata", "011_data",
@@ -56,7 +54,7 @@ bangladesh_fs_path <- file.path(
 )
 bangladesh_fs_data <- read_sav(bangladesh_fs_path)
 
-# HH module (household-level data)
+# Load the HH module (household-level data)
 bangladesh_hh_path <- file.path(
   project_folder,
   "01_process_fls_microdata", "011_data",
