@@ -1,0 +1,27 @@
+# === macOS system files ===
+# Prevents committing hidden system files created by Finder
+.DS_Store
+**/.DS_Store
+# === Environment variables ===
+.env
+.Renviron
+
+# === R / Positron project files ===
+# Ignore temporary and session-specific RStudio files
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# === Temporary and cache files ===
+# Ignore logs, auxiliary files, cache, and temporary outputs
+# *.log
+# *.aux
+# *.out
+# *.pdf
+# *.docx
+# *.RData
+# *.knit.md
+# *.utf8.md
+cache/
+tmp/
