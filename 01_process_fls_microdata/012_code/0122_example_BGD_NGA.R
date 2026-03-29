@@ -104,7 +104,7 @@ for (countrycode in country_codes) {
         # 2) Correctly answer three literal comprehension questions
         # AND Correctly read at least 90% of words in a story
         aLiteral = case_when(
-          readCorrect == 100 &
+          wd_corr > 0.9 * st1wnum ~ 100 &
           FL22A == 1 & FL22B == 1 & FL22C == 1 ~ 100,
           TRUE ~ 0
         ),
@@ -112,7 +112,7 @@ for (countrycode in country_codes) {
         # 3) Correctly answer two inferential comprehension questions
         # AND Correctly read at least 90% of words in a story
         aInferential = case_when(
-          readCorrect == 100 &
+          wd_corr > 0.9 * st1wnum ~ 100 &
           FL22D == 1 & FL22E == 1 ~ 100,
           TRUE ~ 0
         ),
@@ -139,18 +139,20 @@ for (countrycode in country_codes) {
         # 2) Correctly answer three literal comprehension questions
         # AND Correctly read at least 90% of words in a story
         aLiteral = case_when(
-          readCorrect == 100 &
-           ((FL21BA == 1 & FL21BB == 1 & FL21BC == 1) |
-            (FL22A == 1 & FL22B == 1 & FL22C == 1)) ~ 100,
+           (((wd1_corr > 0.9 * st1wnum) & 
+              (FL21BA == 1 & FL21BB == 1 & FL21BC == 1)) |
+            ((wd2_corr > 0.9 * st2wnum) &
+               (FL22A == 1 & FL22B == 1 & FL22C == 1))) ~ 100,
           TRUE ~ 0
         ),
         
         # 3) Correctly answer two inferential comprehension questions
         # AND Correctly read at least 90% of words in a story
         aInferential = case_when(
-          readCorrect == 100 &
-          ((FL21BD == 1 & FL21BE == 1) |
-            (FL22D == 1 & FL22E == 1)) ~ 100,
+          (((wd1_corr > 0.9 * st1wnum) & 
+              (FL21BD == 1 & FL21BE == 1)) |
+             ((wd2_corr > 0.9 * st2wnum) &
+                (FL22D == 1 & FL22E == 1))) ~ 100,
           TRUE ~ 0
         ),
         
