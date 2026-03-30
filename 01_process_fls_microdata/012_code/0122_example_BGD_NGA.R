@@ -104,7 +104,7 @@ for (countrycode in country_codes) {
         # 2) Correctly answer three literal comprehension questions
         # AND Correctly read at least 90% of words in a story
         aLiteral = case_when(
-          wd_corr > 0.9 * st1wnum ~ 100 &
+          wd_corr > 0.9 * st1wnum  &
           FL22A == 1 & FL22B == 1 & FL22C == 1 ~ 100,
           TRUE ~ 0
         ),
@@ -112,7 +112,7 @@ for (countrycode in country_codes) {
         # 3) Correctly answer two inferential comprehension questions
         # AND Correctly read at least 90% of words in a story
         aInferential = case_when(
-          wd_corr > 0.9 * st1wnum ~ 100 &
+          wd_corr > 0.9 * st1wnum &
           FL22D == 1 & FL22E == 1 ~ 100,
           TRUE ~ 0
         ),
