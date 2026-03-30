@@ -80,7 +80,7 @@ GitHub Desktop helps you download and manage the repository easily (no coding ne
 ⚠️ **This is the most important step**
 
 1. Open the folder you just downloaded  
-2. Double-click: `CIES_Workshop_MICS_FLS.Rproj`
+2. Double-click: `CIES-FLS.Rproj`
 
 
 This opens the project in RStudio.
@@ -94,7 +94,7 @@ In RStudio:
 - Look at the **top-right corner**
 - You should see:
  ```
- CIES_Workshop_MICS_FLS
+ CIES-FLS
  ```
 - If it says **"Project: (None)"**, something went wrong — reopen the `.Rproj` file
 
@@ -129,24 +129,27 @@ If the project is not opened correctly → paths will break.
 ```
 ├── Profile.R                          	# Setup script: packages and filepaths
 │
+├── CIES-FLS.Rproj                      # R project: always open R through this
+│
 ├── 00_documentation/                  	# Background materials
 │   ├── Questionnaires
 │   └── Survey findings reports
 │
-├── 01_process_fls_microdata/          	# MICS6 microdata processing
-│   ├── 011_data/                      	# Raw MICS FLS microdata (3 countries)
+├── 01_process_fls_microdata/          		# MICS6 microdata processing
+│   ├── 011_data/                      		# Raw MICS FLS microdata (3 countries)
 │   ├── 012_code/
-│   │   ├── 0121_merge_data.R          	# Demo: merging MICS6 datasets
-│   │   ├── 0122_example_BGD_NGA.R     	# Demo: processing Bangladesh & Nigeria
-│   │   ├── 0123_practice_SUR.R        	# ★ Your turn: process Suriname's data
-│   │   └── 0124_unicefData_demo.R     	# Demo: how to use the unicefData package
-│   └── 013_output/                    	# Output from processing scripts
+│   │   ├── 0121_merge_data.R          		# Demo: merging MICS6 datasets
+│   │   ├── 0122_example_BGD_NGA.R     		# Demo: processing Bangladesh & Nigeria
+│   │   ├── 0123_practice_SUR.R        		# ★ Your turn: process Suriname's data
+│   │   ├── 0124_bonus_visualizations.R 	# BONUS: try to visualize FLS data
+│   │   └── 0125_unicefData_demo.R     		# Demo: how to use the unicefData package
+│   └── 013_output/                    		# Output from processing scripts
 │
-└── 02_learning_gradient_analysis/     	# Visualization and analysis
-    ├── 021_data/                      	# Fully processed FLS data (all countries)
+└── 02_learning_gradient_analysis/     		# Visualization and analysis
+    ├── 021_data/                      		# Fully processed FLS data (all countries)
     ├── 022_code/
     │   └── 0221_learning_gradient_demo.R    	# Reproduces FLS learning gradient plots
-    └── 023_output/                    	# Saved .png visualizations
+    └── 023_output/                    		# Saved .png visualizations
 ```
 
 
@@ -158,7 +161,7 @@ If the project is not opened correctly → paths will break.
 
 - Install R and RStudio  
 - Download the repository  
-- Open `CIES_Workshop_MICS_FLS.Rproj`  
+- Open `CIES-FLS.Rproj`  
 - Open scripts from the **Files pane (bottom-right)**  
 
 ---
@@ -208,6 +211,7 @@ This helps you understand:
 #### ⭐ Bonus (optional)
 
 If you finish early:
+- Use the script `0124_bonus_visualizations.R`
 - Create your own simple visualizations
 - Explore differences by:
   - Sex
@@ -219,7 +223,7 @@ If you finish early:
 ### Step 3 — Use UNICEF Data Directly  
 
 Script:  
-`0124_unicefData_demo.R`
+`0125_unicefData_demo.R`
 
 Learn how to:
 - Access harmonized indicators directly through the new unicefData package
@@ -296,7 +300,7 @@ https://mics.unicef.org
 ## Troubleshooting
 
 **Top-right says "No Project"**
-→ Open `CIES_Workshop_MICS_FLS.Rproj`
+→ Open `CIES-FLS.Rproj`
 
 **File paths not working**
 → You did not open the project correctly

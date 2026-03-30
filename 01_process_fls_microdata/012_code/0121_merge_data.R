@@ -22,7 +22,7 @@
 #-------------------------------------------------------------------
 
 # Please open the R project file:
-#   CIES_Workshop_MICS_FLS.Rproj
+#   CIES-FLS.Rproj
 #
 # Then open this script from the bottom-right "Files" pane in RStudio.
 #
@@ -37,7 +37,7 @@
 #-------------------------------------------------------------------
 
 if (!file.exists("profile.R")) {
-  stop("Please open the project via CIES_Workshop_MICS_FLS.Rproj")
+  stop("Please open the project via CIES-FLS.Rproj")
 } else {
   source("profile.R")
 }

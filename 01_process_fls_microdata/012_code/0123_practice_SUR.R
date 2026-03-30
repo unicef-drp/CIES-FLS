@@ -24,7 +24,7 @@
 #-------------------------------------------------------------------
 
 # Please open the R project file:
-#   CIES_Workshop_MICS_FLS.Rproj
+#   CIES-FLS.Rproj
 #
 # Then open this script from the bottom-right "Files" pane in RStudio.
 #
@@ -39,7 +39,7 @@
 #-------------------------------------------------------------------
 
 if (!file.exists("profile.R")) {
-  stop("Please open the project via CIES_Workshop_MICS_FLS.Rproj")
+  stop("Please open the project via CIES-FLS.Rproj")
 } else {
   source("profile.R")
 }
@@ -65,7 +65,7 @@ if (!file.exists("profile.R")) {
 
 # Copy the relevant line(s) from 0122_example_BGD_NGA
 # Example structure:
-# fs <- readRDS(file.path(raw_output_data, paste0(countrycode, "_fs.rds")))
+# fs <- read_sav(paste0(raw_input_data, "/", countrycode, "_fs.sav"))
 
 #-------------------------------------------------------------------
 # FILTER TARGET POPULATION
@@ -115,125 +115,3 @@ if (uses_single_reading) {
 # Copy the save step from 0122_example_BGD_NGA
 # Example structure:
 # saveRDS(fs, file.path(processed_output_data, paste0(countrycode, "_fs_processed.rds")))
-
-#-------------------------------------------------------------------
-# LOAD PROCESSED SURINAME DATA
-#-------------------------------------------------------------------
-
-# Once you have completed the processing step above, load the
-# processed Suriname file here for the visualisation exercises.
-
-fs <- readRDS(file.path(processed_output_data, "SUR_fs_processed.rds"))
-
-# If you had trouble producing your own processed Suriname dataset, 
-# uncomment this line below and run it to use for the visualization exercises
-#fs <- readRDS(file.path(processed_output_data, "SUR_fs_processed1.rds"))
-
-#-------------------------------------------------------------------
-# VISUALIZE SURINAME FLS DATA
-#-------------------------------------------------------------------
-
-# Now that you have processed the data, you can explore the results.
-# The examples below show how foundational reading and numeracy vary
-# by sex, wealth, and area.
-
-# EXERCISE: If you have additional time, try to make the graph prettier
-# Remember: AI is your friend in coding
-
-#-------------------------------------------------------------------
-# PROFICIENCY BY SEX
-#-------------------------------------------------------------------
-
-sex_summary <- fs %>%
-  mutate(sex = ifelse(HL4 == 1, "Male", "Female")) %>%
-  group_by(sex) %>%
-  summarise(
-    reading = weighted.mean(readingSkill, fsweight, na.rm = TRUE),
-    numeracy = weighted.mean(numbskill, fsweight, na.rm = TRUE)
-  )
-
-sex_plot_data <- sex_summary %>%
-  pivot_longer(
-    cols = c(reading, numeracy),
-    names_to = "subject",
-    values_to = "proficiency"
-  )
-
-ggplot(sex_plot_data, aes(x = subject, y = proficiency, fill = sex)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  scale_y_continuous(labels = scales::label_percent(scale = 1)) +
-  scale_x_discrete(labels = c("reading" = "Reading", "numeracy" = "Numeracy")) +
-  labs(
-    title = "Reading and Numeracy Proficiency by Sex (Suriname)",
-    x = "",
-    y = "Proficiency Rate",
-    fill = "Sex"
-  ) +
-  theme_minimal()
-
-#-------------------------------------------------------------------
-# PROFICIENCY BY WEALTH INDEX
-#-------------------------------------------------------------------
-
-wealth_summary <- fs %>%
-  mutate(
-    wealth = factor(
-      windex5,
-      levels = 1:5,
-      labels = c("Poorest", "Poorer", "Middle", "Richer", "Richest")
-    )
-  ) %>%
-  group_by(wealth) %>%
-  summarise(
-    reading = weighted.mean(readingSkill, fsweight, na.rm = TRUE),
-    numeracy = weighted.mean(numbskill, fsweight, na.rm = TRUE)
-  )
-
-wealth_plot_data <- wealth_summary %>%
-  pivot_longer(
-    cols = c(reading, numeracy),
-    names_to = "subject",
-    values_to = "proficiency"
-  )
-
-ggplot(wealth_plot_data, aes(x = wealth, y = proficiency, fill = subject)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  scale_y_continuous(labels = scales::label_percent(scale = 1)) +
-  labs(
-    title = "Reading and Numeracy Proficiency by Wealth (Suriname)",
-    x = "Wealth Quintile",
-    y = "Proficiency Rate",
-    fill = ""
-  ) +
-  theme_minimal()
-
-#-------------------------------------------------------------------
-# PROFICIENCY BY AREA (URBAN / RURAL)
-#-------------------------------------------------------------------
-
-area_summary <- fs %>%
-  mutate(area = ifelse(HH6 == 1, "Urban", "Rural")) %>%
-  group_by(area) %>%
-  summarise(
-    reading = weighted.mean(readingSkill, fsweight, na.rm = TRUE),
-    numeracy = weighted.mean(numbskill, fsweight, na.rm = TRUE)
-  )
-
-area_plot_data <- area_summary %>%
-  pivot_longer(
-    cols = c(reading, numeracy),
-    names_to = "subject",
-    values_to = "proficiency"
-  )
-
-ggplot(area_plot_data, aes(x = subject, y = proficiency, fill = area)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  scale_y_continuous(labels = scales::label_percent(scale = 1)) +
-  scale_x_discrete(labels = c("reading" = "Reading", "numeracy" = "Numeracy")) +
-  labs(
-    title = "Reading and Numeracy Proficiency by Area (Suriname)",
-    x = "",
-    y = "Proficiency Rate",
-    fill = "Area"
-  ) +
-  theme_minimal()

@@ -11,8 +11,9 @@
 # in R using the "unicefData" package.
 #
 # Key idea:
-# We do NOT need to manually download data from the MICS website.
-# Instead, we query UNICEF data directly from within R.
+# We do NOT ALWAYS need to manually download data from the MICS website.
+# Instead, we can query some indicators directly from within R.
+# Key difference = raw data is on the MICS website, indicators are in unicefData
 #
 # Countries:
 # - Bangladesh (BGD)
