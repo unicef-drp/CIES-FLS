@@ -43,6 +43,8 @@ if (!file.exists("profile.R")) {
 
 #-------------------------------------------------------------------
 # LOAD INPUT DATA
+# output_grade and output_grade_band are pre-built from UNICEF DW learning gradient data,
+# enriched with UNICEF region metadata and World Bank income groups.
 #-------------------------------------------------------------------
 
 output_grade <- read_csv(
